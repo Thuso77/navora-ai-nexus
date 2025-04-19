@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -16,7 +17,9 @@ import {
   MessageSquare,
   BarChart,
   RocketIcon,
-  Send
+  Send,
+  Flag,
+  Code
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -751,3 +754,22 @@ const AgentDetail = () => {
                       <CardHeader className="py-4">
                         <CardTitle className="text-base">{relatedAgent.name}</CardTitle>
                         <CardDescription className="flex items-center mt-1">
+                          <Star className="h-4 w-4 fill-yellow-500 text-yellow-500 mr-1" />
+                          <span>{relatedAgent.rating.toFixed(1)}</span>
+                          <span className="text-xs ml-1">({relatedAgent.reviewCount})</span>
+                          <span className="ml-auto">{formatPrice(relatedAgent.price)}</span>
+                        </CardDescription>
+                      </CardHeader>
+                    </Card>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default AgentDetail;
