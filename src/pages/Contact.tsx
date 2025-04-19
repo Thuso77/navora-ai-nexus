@@ -81,9 +81,21 @@ const Contact = () => {
       <NavBar />
       
       <main className="pt-20">
-        {/* Header Section */}
-        <section className="bg-navora-dark py-20">
-          <div className="container mx-auto px-4">
+        {/* Header Section with Video Background */}
+        <section className="bg-navora-dark py-20 relative overflow-hidden">
+          {/* Video Background */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute top-0 left-0 w-full h-full object-cover opacity-30"
+          >
+            <source src="/tech-background.mp4" type="video/mp4" />
+          </video>
+          
+          {/* Content */}
+          <div className="container mx-auto px-4 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
