@@ -10,6 +10,8 @@ import Marketplace from "./pages/Marketplace";
 import AgentDetail from "./pages/AgentDetail";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import DashboardLayout from "./pages/dashboard/DashboardLayout";
 import Dashboard from "./pages/dashboard/Dashboard";
 import UploadAgent from "./pages/dashboard/UploadAgent";
@@ -30,12 +32,13 @@ const App = () => (
             <Route path="/agent/:id" element={<AgentDetail />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             
             {/* Dashboard Routes */}
             <Route path="/dashboard" element={<DashboardLayout />}>
               <Route index element={<Dashboard />} />
               <Route path="upload" element={<UploadAgent />} />
-              {/* Additional dashboard routes would be added here */}
             </Route>
             
             <Route path="*" element={<NotFound />} />
