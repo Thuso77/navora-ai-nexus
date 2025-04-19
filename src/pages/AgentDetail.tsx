@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -28,9 +27,10 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from '@/lib/utils';
-import { getAgentById, getReviewsByAgentId, formatPrice, formatDate } from '@/utils/mockData';
+import { getAgentById, getReviewsByAgentId, formatPrice, formatDate, agents } from '@/utils/mockData';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
+import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 
 const AgentDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -751,65 +751,3 @@ const AgentDetail = () => {
                       <CardHeader className="py-4">
                         <CardTitle className="text-base">{relatedAgent.name}</CardTitle>
                         <CardDescription className="flex items-center mt-1">
-                          <div className="flex items-center">
-                            <Star className="h-4 w-4 fill-yellow-500 text-yellow-500 mr-1" />
-                            <span>{relatedAgent.rating.toFixed(1)}</span>
-                          </div>
-                          <span className="text-navora-red font-bold ml-auto">{formatPrice(relatedAgent.price)}</span>
-                        </CardDescription>
-                      </CardHeader>
-                    </Card>
-                  </div>
-                ))}
-            </div>
-            
-            <div className="text-center mt-8">
-              <Link to="/marketplace">
-                <Button variant="outline" className="border-navora-red text-navora-red hover:bg-navora-red/10">
-                  View All {agent.category} Agents
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-      </main>
-      
-      <Footer />
-    </div>
-  );
-};
-
-// Missing component definition
-const Flag = ({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-    <line x1="4" y1="22" x2="4" y2="15"></line>
-  </svg>
-);
-
-const Code = ({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <polyline points="16 18 22 12 16 6"></polyline>
-    <polyline points="8 6 2 12 8 18"></polyline>
-  </svg>
-);
-
-export default AgentDetail;
