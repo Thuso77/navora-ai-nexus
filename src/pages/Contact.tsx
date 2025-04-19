@@ -71,8 +71,8 @@ const Contact = () => {
     {
       icon: <MapPin className="h-6 w-6 text-navora-red" />,
       title: "Address",
-      details: "123 Innovation Drive, Tech City, TC 12345",
-      link: "https://maps.google.com"
+      details: "Cape Town City Bowl",
+      link: "https://maps.google.com/maps?q=Cape+Town+City+Bowl"
     }
   ];
 
