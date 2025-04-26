@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -10,10 +11,10 @@ import {
   Lightbulb,
   Flower
 } from 'lucide-react';
-import { Button } from "@/frontend/components/ui/button";
-import { Card, CardContent } from "@/frontend/components/ui/card";
-import { Input } from "@/frontend/components/ui/input";
-import { Textarea } from "@/frontend/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { testimonials } from '@/utils/mockData';
 import NavBar from '@/components/NavBar';

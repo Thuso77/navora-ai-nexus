@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -8,13 +9,13 @@ import {
   ChevronDown,
   ChevronsUpDown
 } from 'lucide-react';
-import { Input } from "@/frontend/components/ui/input";
-import { Button } from "@/frontend/components/ui/button";
-import { Badge } from "@/frontend/components/ui/badge";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/frontend/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/frontend/components/ui/select";
-import { ScrollArea } from "@/frontend/components/ui/scroll-area";
-import { Separator } from "@/frontend/components/ui/separator";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 import {
   Dialog,
   DialogContent,
@@ -22,9 +23,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/frontend/components/ui/dialog"
-import { Switch } from "@/frontend/components/ui/switch";
-import { Label } from "@/frontend/components/ui/label";
+} from "@/components/ui/dialog";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import { cn } from '@/lib/utils';
 import { agents, formatPrice } from '@/utils/mockData';
 import NavBar from '@/components/NavBar';
