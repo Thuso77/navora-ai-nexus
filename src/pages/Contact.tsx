@@ -143,7 +143,7 @@ const Contact = () => {
               <div>
                 <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
                 <div className="bg-navora-dark p-6 rounded-lg">
-                  <Form {...form}>
+                  <Form form={form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                       <FormField
                         control={form.control}

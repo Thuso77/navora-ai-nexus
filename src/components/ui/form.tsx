@@ -1,3 +1,4 @@
+
 import * as React from "react"
 import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
@@ -8,10 +9,24 @@ import {
   FieldValues,
   FormProvider,
   useFormContext,
+  UseFormReturn,
 } from "react-hook-form"
 
 import { cn } from "@/lib/utils"
 import { Label } from "./label"
+
+// Create a Form component that wraps FormProvider
+const Form = React.forwardRef<
+  HTMLFormElement, 
+  React.FormHTMLAttributes<HTMLFormElement> & { 
+    form: UseFormReturn<any>
+  }
+>(({ form, className, ...props }, ref) => (
+  <FormProvider {...form}>
+    <form ref={ref} className={cn(className)} {...props} />
+  </FormProvider>
+))
+Form.displayName = "Form"
 
 type FormControlProps<
   TFieldValues extends FieldValues,
@@ -55,7 +70,8 @@ const FormLabel = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   FormLabelProps
 >(({ className, ...props }, ref) => {
-  const { required } = useFormContext()
+  const formContext = useFormContext();
+  const required = false; // Default value if we can't determine from context
 
   return (
     <Label
@@ -98,9 +114,45 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
 )
 FormMessage.displayName = "FormMessage"
 
+// Create a form field component that will handle render prop
+type FormFieldProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = {
+  name: TName
+  render: ({
+    field,
+    fieldState,
+  }: {
+    field: any
+    fieldState: any
+  }) => React.ReactNode
+} & Omit<ControllerProps<TFieldValues, TName>, "render">
+
+const FormField = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>({
+  name,
+  render,
+  ...props
+}: FormFieldProps<TFieldValues, TName>) => {
+  return (
+    <Controller
+      name={name}
+      {...props}
+      render={({ field, fieldState, formState }) => 
+        render({ field, fieldState, formState })
+      }
+    />
+  )
+}
+
 export {
+  Form,
   FormControl,
   FormDescription,
+  FormField,
   FormItem,
   FormLabel,
   FormMessage,
