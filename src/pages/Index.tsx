@@ -100,10 +100,47 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      {/* Animated Tech Background */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-navora-dark via-navora-dark/95 to-navora-dark z-20" />
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-full h-full">
+            <img 
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475" 
+              alt="" 
+              className="w-full h-full object-cover opacity-50"
+            />
+          </div>
+          <motion.div 
+            className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.2)_50%,transparent_75%,transparent_100%)] bg-[length:60px_60px]"
+            animate={{
+              backgroundPosition: ["0px 0px", "60px 60px"],
+            }}
+            transition={{
+              duration: 3,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+          />
+          <motion.div 
+            className="absolute inset-0 bg-[linear-gradient(135deg,transparent_25%,rgba(68,68,68,0.2)_50%,transparent_75%,transparent_100%)] bg-[length:60px_60px]"
+            animate={{
+              backgroundPosition: ["0px 0px", "-60px 60px"],
+            }}
+            transition={{
+              duration: 3,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+          />
+        </div>
+      </div>
+
       <NavBar />
 
-      <main className="flex-grow">
+      {/* Rest of the content */}
+      <main className="flex-grow relative z-10">
         {/* Hero Section with Enhanced Visuals */}
         <motion.section
           className="bg-navora-dark py-24 relative overflow-hidden"
