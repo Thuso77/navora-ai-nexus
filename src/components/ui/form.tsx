@@ -11,7 +11,7 @@ import {
 } from "react-hook-form"
 
 import { cn } from "@/lib/utils"
-import { Label } from "@/components/ui/label"
+import { Label } from "./label"
 
 type FormControlProps<
   TFieldValues extends FieldValues,
@@ -49,9 +49,7 @@ const FormItem = React.forwardRef<HTMLDivElement, FormItemProps>(
 )
 FormItem.displayName = "FormItem"
 
-type FormLabelProps = React.ComponentPropsWithoutRef<
-  typeof LabelPrimitive.Root
->
+type FormLabelProps = React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
 
 const FormLabel = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
