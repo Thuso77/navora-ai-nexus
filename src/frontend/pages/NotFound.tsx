@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { HomeIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
