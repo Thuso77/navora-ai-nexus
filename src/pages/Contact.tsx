@@ -148,13 +148,15 @@ const Contact = () => {
                       <FormField
                         control={form.control}
                         name="name"
-                        render={({ field }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>Name</FormLabel>
                             <FormControl>
                               <Input placeholder="Your name" {...field} />
                             </FormControl>
-                            <FormMessage />
+                            <FormMessage>
+                              {fieldState.error?.message}
+                            </FormMessage>
                           </FormItem>
                         )}
                       />
@@ -162,13 +164,15 @@ const Contact = () => {
                       <FormField
                         control={form.control}
                         name="email"
-                        render={({ field }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>Email</FormLabel>
                             <FormControl>
                               <Input placeholder="your@email.com" {...field} />
                             </FormControl>
-                            <FormMessage />
+                            <FormMessage>
+                              {fieldState.error?.message}
+                            </FormMessage>
                           </FormItem>
                         )}
                       />
@@ -176,13 +180,15 @@ const Contact = () => {
                       <FormField
                         control={form.control}
                         name="subject"
-                        render={({ field }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>Subject</FormLabel>
                             <FormControl>
                               <Input placeholder="What's this about?" {...field} />
                             </FormControl>
-                            <FormMessage />
+                            <FormMessage>
+                              {fieldState.error?.message}
+                            </FormMessage>
                           </FormItem>
                         )}
                       />
@@ -190,7 +196,7 @@ const Contact = () => {
                       <FormField
                         control={form.control}
                         name="message"
-                        render={({ field }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>Message</FormLabel>
                             <FormControl>
@@ -200,7 +206,9 @@ const Contact = () => {
                                 {...field}
                               />
                             </FormControl>
-                            <FormMessage />
+                            <FormMessage>
+                              {fieldState.error?.message}
+                            </FormMessage>
                           </FormItem>
                         )}
                       />

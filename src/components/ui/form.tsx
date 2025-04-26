@@ -10,6 +10,9 @@ import {
   FormProvider,
   useFormContext,
   UseFormReturn,
+  ControllerRenderProps,
+  ControllerFieldState,
+  UseFormStateReturn
 } from "react-hook-form"
 
 import { cn } from "@/lib/utils"
@@ -123,10 +126,12 @@ type FormFieldProps<
   render: ({
     field,
     fieldState,
+    formState,
   }: {
-    field: any
-    fieldState: any
-  }) => React.ReactNode
+    field: ControllerRenderProps<TFieldValues, TName>
+    fieldState: ControllerFieldState
+    formState: UseFormStateReturn<TFieldValues>
+  }) => React.ReactElement
 } & Omit<ControllerProps<TFieldValues, TName>, "render">
 
 const FormField = <
