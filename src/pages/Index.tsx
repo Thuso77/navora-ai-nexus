@@ -1,8 +1,15 @@
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { 
+  Sparkles, 
+  Rocket, 
+  Globe, 
+  Trophy,
+  Brain, 
+  Lightbulb,
+  Flower
+} from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -18,7 +25,6 @@ const Index = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Scroll to top when component mounts
     window.scrollTo(0, 0);
   }, []);
 
@@ -81,20 +87,56 @@ const Index = () => {
     }
   };
 
+  // Animation variants for floating icons
+  const floatingAnimation = {
+    animate: {
+      y: [0, -10, 0],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar />
 
       <main className="flex-grow">
-        {/* Hero Section */}
+        {/* Hero Section with Enhanced Visuals */}
         <motion.section
-          className="bg-navora-dark py-24"
+          className="bg-navora-dark py-24 relative overflow-hidden"
           variants={heroVariants}
           initial="hidden"
           animate="visible"
         >
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-5xl font-bold mb-6">
+          {/* Decorative Elements */}
+          <motion.div 
+            className="absolute top-10 left-10 text-navora-red opacity-50"
+            variants={floatingAnimation}
+            animate="animate"
+          >
+            <Sparkles className="h-12 w-12" />
+          </motion.div>
+          <motion.div 
+            className="absolute bottom-20 right-20 text-navora-red opacity-50"
+            variants={floatingAnimation}
+            animate="animate"
+          >
+            <Rocket className="h-16 w-16" />
+          </motion.div>
+          <motion.div 
+            className="absolute top-20 right-32 text-navora-red opacity-30"
+            variants={floatingAnimation}
+            animate="animate"
+          >
+            <Globe className="h-10 w-10" />
+          </motion.div>
+
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <h1 className="text-5xl font-bold mb-6 flex items-center justify-center gap-4">
+              <Lightbulb className="h-10 w-10 text-navora-red" />
               Unlock the Power of AI with Navora
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
@@ -103,11 +145,13 @@ const Index = () => {
             <div className="flex justify-center gap-4">
               <Link to="/marketplace">
                 <Button className="bg-navora-red hover:bg-navora-red/90 text-white">
+                  <Rocket className="mr-2 h-5 w-5" />
                   Explore Marketplace
                 </Button>
               </Link>
               <Link to="/dashboard/upload">
                 <Button variant="outline" className="border-navora-red text-navora-red hover:bg-navora-red/10">
+                  <Trophy className="mr-2 h-5 w-5" />
                   Become a Creator
                 </Button>
               </Link>
@@ -115,61 +159,85 @@ const Index = () => {
           </div>
         </motion.section>
 
-        {/* Features Section */}
+        {/* Features Section with Icons */}
         <motion.section
-          className="bg-background py-16"
+          className="bg-background py-16 relative"
           variants={featuresVariants}
           initial="hidden"
           animate="visible"
         >
+          <motion.div 
+            className="absolute top-10 right-10 text-navora-red opacity-30"
+            variants={floatingAnimation}
+            animate="animate"
+          >
+            <Brain className="h-20 w-20" />
+          </motion.div>
+          
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center gap-3">
+              <Trophy className="h-8 w-8 text-navora-red" />
               Key Features
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Feature 1 */}
-              <div className="text-center">
-                <Sparkles className="mx-auto h-10 w-10 text-navora-red mb-4" />
+              {/* Feature cards with enhanced styling */}
+              <motion.div 
+                className="bg-navora-dark p-6 rounded-lg border border-navora-lightgray hover:border-navora-red transition-colors"
+                whileHover={{ scale: 1.02 }}
+              >
+                <Globe className="mx-auto h-12 w-12 text-navora-red mb-4" />
                 <h3 className="text-xl font-semibold mb-2">
                   Discover AI Agents
                 </h3>
                 <p className="text-muted-foreground">
                   Explore a wide range of AI agents for various use cases.
                 </p>
-              </div>
+              </motion.div>
 
-              {/* Feature 2 */}
-              <div className="text-center">
-                <Sparkles className="mx-auto h-10 w-10 text-navora-red mb-4" />
+              <motion.div 
+                className="bg-navora-dark p-6 rounded-lg border border-navora-lightgray hover:border-navora-red transition-colors"
+                whileHover={{ scale: 1.02 }}
+              >
+                <Lightbulb className="mx-auto h-12 w-12 text-navora-red mb-4" />
                 <h3 className="text-xl font-semibold mb-2">
                   Create Your Own
                 </h3>
                 <p className="text-muted-foreground">
                   Build and deploy custom AI agents with ease.
                 </p>
-              </div>
+              </motion.div>
 
-              {/* Feature 3 */}
-              <div className="text-center">
-                <Sparkles className="mx-auto h-10 w-10 text-navora-red mb-4" />
+              <motion.div 
+                className="bg-navora-dark p-6 rounded-lg border border-navora-lightgray hover:border-navora-red transition-colors"
+                whileHover={{ scale: 1.02 }}
+              >
+                <Trophy className="mx-auto h-12 w-12 text-navora-red mb-4" />
                 <h3 className="text-xl font-semibold mb-2">
                   Monetize Your Work
                 </h3>
                 <p className="text-muted-foreground">
                   Earn revenue by selling your AI agents on our marketplace.
                 </p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </motion.section>
 
-        {/* Testimonials Section */}
+        {/* Testimonials Section with Enhanced Cards */}
         <motion.section
-          className="bg-navora-dark py-16"
+          className="bg-navora-dark py-16 relative"
           variants={testimonialsVariants}
           initial="hidden"
           animate="visible"
         >
+          <motion.div 
+            className="absolute bottom-10 left-10 text-navora-red opacity-30"
+            variants={floatingAnimation}
+            animate="animate"
+          >
+            <Flower className="h-16 w-16" />
+          </motion.div>
+
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">
               What Our Users Say
