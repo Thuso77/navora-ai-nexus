@@ -148,7 +148,7 @@ const Contact = () => {
                       <FormField
                         control={form.control}
                         name="name"
-                        render={({ field, fieldState, formState }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>Name</FormLabel>
                             <FormControl>
@@ -164,7 +164,7 @@ const Contact = () => {
                       <FormField
                         control={form.control}
                         name="email"
-                        render={({ field, fieldState, formState }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>Email</FormLabel>
                             <FormControl>
@@ -180,7 +180,7 @@ const Contact = () => {
                       <FormField
                         control={form.control}
                         name="subject"
-                        render={({ field, fieldState, formState }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>Subject</FormLabel>
                             <FormControl>
@@ -196,7 +196,7 @@ const Contact = () => {
                       <FormField
                         control={form.control}
                         name="message"
-                        render={({ field, fieldState, formState }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>Message</FormLabel>
                             <FormControl>
