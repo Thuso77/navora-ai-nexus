@@ -123,11 +123,7 @@ type FormFieldProps<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 > = {
   name: TName
-  render: ({
-    field,
-    fieldState,
-    formState,
-  }: {
+  render: (props: {
     field: ControllerRenderProps<TFieldValues, TName>
     fieldState: ControllerFieldState
     formState: UseFormStateReturn<TFieldValues>

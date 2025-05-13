@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Search, Menu, X, ShoppingCart, User } from 'lucide-react';
+import { Search, Menu, X, ShoppingCart, User, Cloud, Workflow } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const NavBar = () => {
@@ -53,9 +53,9 @@ const NavBar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/12413e63-6c64-4228-a06d-092acab6b746.png" 
+            src="/lovable-uploads/9a594b4c-4890-4009-8d33-b42bca8a1ed4.png" 
             alt="Navora Creative Solutions" 
-            className="h-8 md:h-10" 
+            className="h-12 md:h-14" 
           />
         </Link>
 
@@ -65,7 +65,7 @@ const NavBar = () => {
             Home
           </Link>
           <Link to="/marketplace" className={cn('nav-link', isActive('/marketplace') && 'active')}>
-            Marketplace
+            Services
           </Link>
           <Link to="/about" className={cn('nav-link', isActive('/about') && 'active')}>
             About
@@ -79,9 +79,6 @@ const NavBar = () => {
         <div className="hidden md:flex items-center space-x-4">
           <Button variant="ghost" size="icon" aria-label="Search">
             <Search className="h-5 w-5" />
-          </Button>
-          <Button variant="ghost" size="icon" aria-label="Cart">
-            <ShoppingCart className="h-5 w-5" />
           </Button>
           
           {isAuthenticated ? (
@@ -99,7 +96,7 @@ const NavBar = () => {
                 <Button variant="ghost">Sign In</Button>
               </Link>
               <Link to="/signup">
-                <Button variant="default" className="bg-navora-red hover:bg-navora-red/90">Sign Up</Button>
+                <Button variant="default" className="bg-navora-red hover:bg-navora-red/90">Get Started</Button>
               </Link>
             </div>
           )}
@@ -137,7 +134,7 @@ const NavBar = () => {
             className={cn('nav-link', isActive('/marketplace') && 'active')}
             onClick={() => setIsMenuOpen(false)}
           >
-            Marketplace
+            Services
           </Link>
           <Link 
             to="/about" 
@@ -188,7 +185,7 @@ const NavBar = () => {
                   className="button-primary w-full text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Sign Up
+                  Get Started
                 </Link>
               </>
             )}

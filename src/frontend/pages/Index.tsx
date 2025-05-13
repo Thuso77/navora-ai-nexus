@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -7,9 +6,11 @@ import {
   Rocket, 
   Globe, 
   Trophy,
-  Brain, 
+  Cloud, 
   Lightbulb,
-  Flower
+  Database,
+  Clock,
+  Scale
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -155,14 +156,14 @@ const Index = () => {
             variants={floatingAnimation}
             animate="animate"
           >
-            <Sparkles className="h-12 w-12" />
+            <Cloud className="h-12 w-12" />
           </motion.div>
           <motion.div 
             className="absolute bottom-20 right-20 text-navora-red opacity-50"
             variants={floatingAnimation}
             animate="animate"
           >
-            <Rocket className="h-16 w-16" />
+            <Database className="h-16 w-16" />
           </motion.div>
           <motion.div 
             className="absolute top-20 right-32 text-navora-red opacity-30"
@@ -174,23 +175,23 @@ const Index = () => {
 
           <div className="container mx-auto px-4 text-center relative z-10">
             <h1 className="text-5xl font-bold mb-6 flex items-center justify-center gap-4">
-              <Lightbulb className="h-10 w-10 text-navora-red" />
-              Unlock the Power of AI with Navora
+              <Cloud className="h-10 w-10 text-navora-red" />
+              Cloud DevOps & Automation Solutions
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Discover, create, and monetize AI agents.
+              Streamline your workflows, scale with ease, and maximize efficiency with Navora.
             </p>
             <div className="flex justify-center gap-4">
               <Link to="/marketplace">
                 <Button className="bg-navora-red hover:bg-navora-red/90 text-white">
-                  <Rocket className="mr-2 h-5 w-5" />
-                  Explore Marketplace
+                  <Cloud className="mr-2 h-5 w-5" />
+                  Our Services
                 </Button>
               </Link>
-              <Link to="/dashboard/upload">
+              <Link to="/contact">
                 <Button variant="outline" className="border-navora-red text-navora-red hover:bg-navora-red/10">
-                  <Trophy className="mr-2 h-5 w-5" />
-                  Become a Creator
+                  <Database className="mr-2 h-5 w-5" />
+                  Start Automating
                 </Button>
               </Link>
             </div>
@@ -209,13 +210,13 @@ const Index = () => {
             variants={floatingAnimation}
             animate="animate"
           >
-            <Brain className="h-20 w-20" />
+            <Database className="h-20 w-20" />
           </motion.div>
           
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center gap-3">
               <Trophy className="h-8 w-8 text-navora-red" />
-              Key Features
+              Our Services
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Feature cards with enhanced styling */}
@@ -223,12 +224,25 @@ const Index = () => {
                 className="bg-navora-dark p-6 rounded-lg border border-navora-lightgray hover:border-navora-red transition-colors"
                 whileHover={{ scale: 1.02 }}
               >
-                <Globe className="mx-auto h-12 w-12 text-navora-red mb-4" />
+                <Cloud className="mx-auto h-12 w-12 text-navora-red mb-4" />
                 <h3 className="text-xl font-semibold mb-2">
-                  Discover AI Agents
+                  AWS Cloud DevOps
                 </h3>
                 <p className="text-muted-foreground">
-                  Explore a wide range of AI agents for various use cases.
+                  Expert cloud infrastructure management and optimization on AWS.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                className="bg-navora-dark p-6 rounded-lg border border-navora-lightgray hover:border-navora-red transition-colors"
+                whileHover={{ scale: 1.02 }}
+              >
+                <Database className="mx-auto h-12 w-12 text-navora-red mb-4" />
+                <h3 className="text-xl font-semibold mb-2">
+                  Workflow Automation
+                </h3>
+                <p className="text-muted-foreground">
+                  Automate data entry and customer retention workflows for maximum efficiency.
                 </p>
               </motion.div>
 
@@ -238,25 +252,47 @@ const Index = () => {
               >
                 <Lightbulb className="mx-auto h-12 w-12 text-navora-red mb-4" />
                 <h3 className="text-xl font-semibold mb-2">
-                  Create Your Own
+                  Training & Expertise
                 </h3>
                 <p className="text-muted-foreground">
-                  Build and deploy custom AI agents with ease.
+                  Learn to automate your daily workflows to minimize errors and save time.
                 </p>
               </motion.div>
+            </div>
+          </div>
+        </motion.section>
 
-              <motion.div 
-                className="bg-navora-dark p-6 rounded-lg border border-navora-lightgray hover:border-navora-red transition-colors"
-                whileHover={{ scale: 1.02 }}
-              >
-                <Trophy className="mx-auto h-12 w-12 text-navora-red mb-4" />
-                <h3 className="text-xl font-semibold mb-2">
-                  Monetize Your Work
-                </h3>
+        {/* Benefits Section */}
+        <motion.section
+          className="bg-navora-darker py-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">Why Choose Navora</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="flex flex-col items-center text-center">
+                <Clock className="h-12 w-12 text-navora-red mb-4" />
+                <h3 className="text-xl font-semibold mb-2">Save Time</h3>
                 <p className="text-muted-foreground">
-                  Earn revenue by selling your AI agents on our marketplace.
+                  Automate repetitive tasks and free up your team to focus on growth.
                 </p>
-              </motion.div>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <Database className="h-12 w-12 text-navora-red mb-4" />
+                <h3 className="text-xl font-semibold mb-2">Minimize Errors</h3>
+                <p className="text-muted-foreground">
+                  Reduce human errors with reliable, consistent automated workflows.
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <Scale className="h-12 w-12 text-navora-red mb-4" />
+                <h3 className="text-xl font-semibold mb-2">Scale Effortlessly</h3>
+                <p className="text-muted-foreground">
+                  Grow your business with systems that scale alongside your needs.
+                </p>
+              </div>
             </div>
           </div>
         </motion.section>
@@ -273,12 +309,12 @@ const Index = () => {
             variants={floatingAnimation}
             animate="animate"
           >
-            <Flower className="h-16 w-16" />
+            <Database className="h-16 w-16" />
           </motion.div>
 
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">
-              What Our Users Say
+              What Our Clients Say
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {testimonials.map((testimonial) => (

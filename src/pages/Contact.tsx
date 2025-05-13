@@ -104,7 +104,7 @@ const Contact = () => {
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h1>
               <p className="text-xl text-muted-foreground">
-                Have questions about our AI agents? We're here to help you succeed.
+                Have questions about our cloud DevOps or automation services? We're here to help.
               </p>
             </motion.div>
           </div>
@@ -245,4 +245,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
